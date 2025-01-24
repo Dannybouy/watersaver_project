@@ -1,8 +1,7 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Waves } from "lucide-react"
-import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu, Waves } from "lucide-react"
+import Link from "next/link"
 
 export function Navbar() {
   return (
@@ -57,12 +56,16 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center space-x-4">
+          <Link href="/login">
           <Button variant="ghost" className="hidden md:inline-flex hover:text-blue-600">
             Sign in
           </Button>
+          </Link>
+          <Link href="/register">
           <Button variant="default" className="bg-blue-600 hover:bg-blue-700">
             Register
           </Button>
+          </Link>
         </div>
       </nav>
     </header>

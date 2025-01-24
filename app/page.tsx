@@ -1,8 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { LineChart, LightbulbIcon, Users, HomeIcon } from "lucide-react"
+import { HomeIcon, LightbulbIcon, LineChart, Users } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -23,7 +22,7 @@ export default function Home() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl">
             Track your water usage, get personalized recommendations, and contribute to environmental sustainability.
           </p>
-          <Link href="/calculator">
+          <Link href="/login">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
               Start Calculating
             </Button>
