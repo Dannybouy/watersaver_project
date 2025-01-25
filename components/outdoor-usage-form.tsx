@@ -1,19 +1,30 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type OutdoorUsageFormProps = {
-  formData: any
-  onUpdateFormData: (data: any) => void
-  onBack: () => void
-}
+  formData: any;
+  onUpdateFormData: (data: any) => void;
+  onBack: () => void;
+};
 
-export function OutdoorUsageForm({ formData, onUpdateFormData, onBack }: OutdoorUsageFormProps) {
+export function OutdoorUsageForm({
+  formData,
+  onUpdateFormData,
+  onBack,
+}: OutdoorUsageFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", formData)
-  }
+    console.log("Form submitted:", formData);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
@@ -22,101 +33,99 @@ export function OutdoorUsageForm({ formData, onUpdateFormData, onBack }: Outdoor
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Lawn & Garden</h3>
+            <h3 className="text-xl font-semibold mb-4">Outdoor Features</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="lawnSize">Lawn Size (sq ft)</Label>
-                <Input
-                  id="lawnSize"
-                  type="number"
-                  value={formData.lawnSize}
-                  onChange={(e) => onUpdateFormData({ lawnSize: e.target.value })}
-                  placeholder="Enter square feet"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="gardenSize">Garden Size (sq ft)</Label>
-                <Input
-                  id="gardenSize"
-                  type="number"
-                  value={formData.gardenSize}
-                  onChange={(e) => onUpdateFormData({ gardenSize: e.target.value })}
-                  placeholder="Enter square feet"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="wateringFrequency">Watering Frequency</Label>
-                <Input
-                  id="wateringFrequency"
-                  value={formData.wateringFrequency}
-                  onChange={(e) => onUpdateFormData({ wateringFrequency: e.target.value })}
-                  placeholder="Enter Frequency"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="irrigationType">Irrigation System Type</Label>
-                <Input
-                  id="irrigationType"
-                  value={formData.irrigationType}
-                  onChange={(e) => onUpdateFormData({ irrigationType: e.target.value })}
-                  placeholder="Enter type"
-                  required
-                />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Additional Features</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="poolType">Swimming Pool</Label>
-                <Input
-                  id="poolType"
-                  value={formData.poolType}
-                  onChange={(e) => onUpdateFormData({ poolType: e.target.value })}
-                  placeholder="Enter pool type"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="poolSize">Pool Size (If applicable)</Label>
+                <Label htmlFor="poolSize">Swimming Pool Size</Label>
                 <Input
                   id="poolSize"
                   value={formData.poolSize}
-                  onChange={(e) => onUpdateFormData({ poolSize: e.target.value })}
-                  placeholder="Gallons"
+                  onChange={(e) =>
+                    onUpdateFormData({ poolSize: e.target.value })
+                  }
+                  placeholder="Enter pool size in liters"
+                  required
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="carWashingFrequency">Car Washing Frequency</Label>
-                <Input
-                  id="carWashingFrequency"
-                  value={formData.carWashingFrequency}
-                  onChange={(e) => onUpdateFormData({ carWashingFrequency: e.target.value })}
-                  placeholder="Enter Frequency"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="mt-8 bg-blue-100 p-6 rounded-lg">
-          <h3 className="font-semibold mb-2">Estimated Daily Outdoor Usage</h3>
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <p className="text-sm mb-1">Lawn & Garden</p>
-              <p className="text-blue-600 text-2xl font-bold">75 gal</p>
-            </div>
-            <div>
-              <p className="text-sm mb-1">Pool & Features</p>
-              <p className="text-blue-600 text-2xl font-bold">20 gal</p>
-            </div>
-            <div>
-              <p className="text-sm mb-1">Other Usage</p>
-              <p className="text-blue-600 text-2xl font-bold">10 gal</p>
+              <div className="space-y-2">
+                <Label htmlFor="poolWaterChange">
+                  Pool Water Change Frequency
+                </Label>
+                <Select
+                  onValueChange={(value) =>
+                    onUpdateFormData({ poolWaterChange: value })
+                  }
+                  defaultValue={formData.poolWaterChange}
+                >
+                  <SelectTrigger className="">
+                    <SelectValue placeholder="weekly/monthly" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="weekly">Weekly</SelectItem>
+                    <SelectItem value="monthly">Monthly</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="carWashingChange">Car Washing Frequency</Label>
+                <Select
+                  onValueChange={(value) =>
+                    onUpdateFormData({ carWashingChange: value })
+                  }
+                  defaultValue={formData.carWashingChange}
+                >
+                  <SelectTrigger className="">
+                    <SelectValue placeholder="weekly/monthly" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="weekly">Weekly</SelectItem>
+                    <SelectItem value="monthly">Monthly</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="poolSize">
+                  Water Used for Car Wash (Liters)
+                </Label>
+                <Input
+                  id="poolSize"
+                  value={formData.waterUsage}
+                  onChange={(e) =>
+                    onUpdateFormData({ waterUsage: e.target.value })
+                  }
+                  placeholder="Water usage (Liters)"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="poolSize">Average Monthly Bill (₦)</Label>
+                <Input
+                  id="poolSize"
+                  value={formData.averageMonthlyBill}
+                  onChange={(e) =>
+                    onUpdateFormData({ averageMonthlyBill: e.target.value })
+                  }
+                  placeholder="Enter Monthly Amount"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="poolSize">Water Provider</Label>
+                <Input
+                  id="poolSize"
+                  value={formData.waterProvider}
+                  onChange={(e) =>
+                    onUpdateFormData({ waterProvider: e.target.value })
+                  }
+                  placeholder="Enter provider name"
+                  required
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -127,10 +136,9 @@ export function OutdoorUsageForm({ formData, onUpdateFormData, onBack }: Outdoor
           Back
         </Button>
         <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-          View Results
+          Submit
         </Button>
       </div>
     </form>
-  )
+  );
 }
-

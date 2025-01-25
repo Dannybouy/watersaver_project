@@ -44,12 +44,35 @@ export default function RegisterPage() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    toast({
-      title: "Account created!",
-      description: "You can now sign in with your credentials.",
-    })
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch('waterSaver/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Registration failed');
+      }
+
+      toast({
+        title: "Account created!",
+        description: "You can now sign in with your credentials.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create account. Please try again.",
+        variant: "destructive",
+      });
+      console.error(error);
+    }
   }
 
   return (

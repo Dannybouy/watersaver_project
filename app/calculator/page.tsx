@@ -14,20 +14,21 @@ export default function Calculator() {
     // Basic Info
     occupants: "",
     // Indoor Usage
-    showerType: "",
-    showerDuration: "",
-    toiletFlushType: "",
-    toiletFlushesPerDay: "",
+    showerFlowRate: "",
+    averageShowerTime: "",
+    toiletFlushVolume: "",
+    averageFlushesPerDay: "",
     // kitchen usage
     kitchenUsage: "",
-    tapDuration: "",
-    flowRateOrType:"",
-    numberOfKitchenUsageUsers:"",
-    dishwasherTapDuration:"",
+    averageTapUsageTime: "",
+    tapFlowRate: "",
+    numberOfKitchenUsers: "",
+    dishWasherType: "",
+    dishWasherUsageFrequency: "",
     // laundry usage
     laundryUsage: "",
-    laundryTapDuration:"",
-    laundryFlowRateOrType:"",
+    laundryTapDuration: "",
+    laundryFlowRateOrType: "",
     numberOfLaundryUsageUsers: "",
 
     // Outdoor Usage
