@@ -47,8 +47,9 @@ export function Navbar() {
           <Link href="/calculators" className="text-sm hover:text-blue-600 transition-colors">
             Calculators
           </Link>
-          <Link href="/resources" className="text-sm hover:text-blue-600 transition-colors">
-            Resources
+          
+          <Link href="/tips" className="text-sm hover:text-blue-600 transition-colors">
+            Tips
           </Link>
           <Link href="/about" className="text-sm hover:text-blue-600 transition-colors">
             About

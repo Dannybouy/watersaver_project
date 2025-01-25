@@ -20,8 +20,8 @@ export function Footer() {
             <Link href="/calculators" className="block text-sm hover:opacity-80 transition-opacity">
               Calculators
             </Link>
-            <Link href="/resources" className="block text-sm hover:opacity-80 transition-opacity">
-              Resources
+            <Link href="/tips" className="block text-sm hover:opacity-80 transition-opacity">
+              Tips
             </Link>
             <Link href="/about" className="block text-sm hover:opacity-80 transition-opacity">
               About
@@ -32,8 +32,8 @@ export function Footer() {
         <div>
           <h4 className="text-lg font-semibold mb-4">Support</h4>
           <div className="space-y-2">
-            <Link href="/help" className="block text-sm hover:opacity-80 transition-opacity">
-              Help Center
+            <Link href="/faq" className="block text-sm hover:opacity-80 transition-opacity">
+              FAQ
             </Link>
             <Link href="/contact" className="block text-sm hover:opacity-80 transition-opacity">
               Contact Us

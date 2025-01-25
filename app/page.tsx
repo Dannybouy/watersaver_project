@@ -22,7 +22,7 @@ export default function Home() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl">
             Track your water usage, get personalized recommendations, and contribute to environmental sustainability.
           </p>
-          <Link href="/login">
+          <Link href="/calculator">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
               Start Calculating
             </Button>

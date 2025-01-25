@@ -16,34 +16,9 @@ export function BasicInfoForm({ formData, onUpdateFormData, onNext }: BasicInfoF
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+        <h2 className="text-2xl font-bold mb-6">Water Calculator Input</h2>
       <div>
-        <h2 className="text-2xl font-bold mb-6">Basic Information</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <Label htmlFor="state">State/Region</Label>
-            <Input
-              id="state"
-              value={formData.state}
-              onChange={(e) => onUpdateFormData({ state: e.target.value })}
-              placeholder="Enter State"
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="city">City</Label>
-            <Input
-              id="city"
-              value={formData.city}
-              onChange={(e) => onUpdateFormData({ city: e.target.value })}
-              placeholder="Enter City"
-              required
-            />
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-xl font-semibold mb-4">Usage Patterns</h3>
+        <h3 className="text-xl font-semibold mb-4">Daily Water Usage Input </h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label htmlFor="occupants">Occupants</Label>
@@ -56,45 +31,11 @@ export function BasicInfoForm({ formData, onUpdateFormData, onNext }: BasicInfoF
               required
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="hoursAtHome">Average Daily Hours at Home</Label>
-            <Input
-              id="hoursAtHome"
-              type="number"
-              value={formData.hoursAtHome}
-              onChange={(e) => onUpdateFormData({ hoursAtHome: e.target.value })}
-              placeholder="Hours per day"
-              required
-            />
-          </div>
         </div>
       </div>
 
-      <div>
-        <h3 className="text-xl font-semibold mb-4">Current Water Usage</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <Label htmlFor="monthlyBill">Average Monthly Bill ($)</Label>
-            <Input
-              id="monthlyBill"
-              type="number"
-              value={formData.monthlyBill}
-              onChange={(e) => onUpdateFormData({ monthlyBill: e.target.value })}
-              placeholder="Enter Monthly Amount"
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="waterProvider">Water Provider</Label>
-            <Input
-              id="waterProvider"
-              value={formData.waterProvider}
-              onChange={(e) => onUpdateFormData({ waterProvider: e.target.value })}
-              placeholder="Enter provider name"
-              required
-            />
-          </div>
-        </div>
+      <div className="flex justify-end">
+        <Button type="submit">Next: Indoor Usage</Button>
       </div>
 
       <div className="bg-blue-100 p-6 rounded-lg">
@@ -105,9 +46,7 @@ export function BasicInfoForm({ formData, onUpdateFormData, onNext }: BasicInfoF
         </p>
       </div>
 
-      <div className="flex justify-end">
-        <Button type="submit">Next: Indoor Usage</Button>
-      </div>
+      
     </form>
   )
 }
