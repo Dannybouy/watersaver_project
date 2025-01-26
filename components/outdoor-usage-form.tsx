@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
 
 type OutdoorUsageFormProps = {
   formData: any;
@@ -20,10 +21,14 @@ export function OutdoorUsageForm({
   onUpdateFormData,
   onBack,
 }: OutdoorUsageFormProps) {
+  const router = useRouter();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log("Form submitted:", formData);
+
+    router.push("/dashboard/results");
   };
 
   return (

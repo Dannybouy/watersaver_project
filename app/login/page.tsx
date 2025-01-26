@@ -20,6 +20,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -34,6 +35,7 @@ const formSchema = z.object({
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,27 +47,30 @@ export default function LoginPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("/waterSaver/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: values.email,
-          password: values.password,
-        }),
-      });
+      // const response = await fetch("/waterSaver/signin", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: values.email,
+      //     password: values.password,
+      //   }),
+      // });
 
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
+      // if (!response.ok) {
+      //   throw new Error("Login failed");
+      // }
 
-      const data = await response.json();
+      // const data = await response.json();
 
       toast({
         title: "Success!",
         description: "You have successfully logged in.",
       });
+
+      router.push("/dashboard")
+      
     } catch (error) {
       toast({
         title: "Error",

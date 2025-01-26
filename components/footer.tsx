@@ -17,13 +17,13 @@ export function Footer() {
             <Link href="/" className="block text-sm hover:opacity-80 transition-opacity">
               Home
             </Link>
-            <Link href="/calculators" className="block text-sm hover:opacity-80 transition-opacity">
+            <Link href="/dashboard/calculator" className="block text-sm hover:opacity-80 transition-opacity">
               Calculators
             </Link>
-            <Link href="/tips" className="block text-sm hover:opacity-80 transition-opacity">
+            <Link href="/dashboard/tips" className="block text-sm hover:opacity-80 transition-opacity">
               Tips
             </Link>
-            <Link href="/about" className="block text-sm hover:opacity-80 transition-opacity">
+            <Link href="/dashboard/about" className="block text-sm hover:opacity-80 transition-opacity">
               About
             </Link>
           </div>
@@ -35,15 +35,7 @@ export function Footer() {
             <Link href="/faq" className="block text-sm hover:opacity-80 transition-opacity">
               FAQ
             </Link>
-            <Link href="/contact" className="block text-sm hover:opacity-80 transition-opacity">
-              Contact Us
-            </Link>
-            <Link href="/privacy" className="block text-sm hover:opacity-80 transition-opacity">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="block text-sm hover:opacity-80 transition-opacity">
-              Terms of Service
-            </Link>
+            
           </div>
         </div>
 
